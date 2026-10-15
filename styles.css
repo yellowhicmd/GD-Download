@@ -80,10 +80,6 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; }
 .stage-grid { position: absolute; inset: 0; opacity: .28; background-image: linear-gradient(rgba(201,167,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(201,167,255,.12) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse, black 12%, transparent 73%); }
 .stage-orbit { position: absolute; top: 48%; left: 50%; width: 330px; height: 330px; border: 1px solid rgba(201,167,255,.2); border-radius: 50%; transform: translate(-50%,-50%) rotate(-22deg) scaleY(.55); }
 .orbit-b { width: 420px; height: 420px; transform: translate(-50%,-50%) rotate(52deg) scaleY(.48); border-color: rgba(122,240,209,.17); }
-.game-cube { position: absolute; top: 42%; left: 50%; width: 142px; height: 142px; transform: translate(-50%,-50%) rotate(8deg) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); border: 2px solid rgba(235,230,255,.93); border-radius: 25px; background: linear-gradient(145deg, #b7a0ff, #8a6ff0 55%, #5b4eb0); box-shadow: inset -12px -12px 0 rgba(49,36,113,.16), inset 7px 7px 0 rgba(255,255,255,.15), 0 25px 65px rgba(121,92,255,.36), 0 0 0 13px rgba(177,156,255,.055); transition: transform .35s ease; animation: cube-hover 4s ease-in-out infinite; }
-.cube-eye { position: absolute; top: 42px; width: 13px; height: 17px; border-radius: 4px; background: #27223e; box-shadow: inset 0 2px rgba(255,255,255,.25); }
-.eye-left { left: 34px; }.eye-right { right: 34px; }
-.cube-mouth { position: absolute; bottom: 33px; left: 50%; width: 27px; height: 10px; transform: translateX(-50%); border-bottom: 4px solid #27223e; border-radius: 0 0 12px 12px; }
 .float-shape { position: absolute; z-index: 2; }
 .shape-diamond { top: 18%; right: 20%; width: 27px; height: 27px; transform: rotate(45deg); border: 2px solid var(--mint); border-radius: 5px; box-shadow: 0 0 25px rgba(122,240,209,.3); animation: bob 5s ease-in-out infinite; }
 .shape-ring { bottom: 20%; left: 18%; width: 42px; height: 42px; border: 2px solid var(--pink); border-radius: 50%; box-shadow: 0 0 26px rgba(255,157,213,.2); animation: bob 6s ease-in-out infinite reverse; }
@@ -166,8 +162,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; }
   .hero-copy h1, .download-heading h1 { font-size: clamp(3rem, 13vw, 4.2rem); }
   .hero-actions { gap: 18px; }
   .visual-stage { min-height: 350px; border-radius: 28px; }
-  .game-cube { width: 116px; height: 116px; border-radius: 21px; }
-  .cube-eye { top: 34px; }.eye-left { left: 27px; }.eye-right { right: 27px; }.cube-mouth { bottom: 26px; }
+
   .stage-orbit { width: 270px; height: 270px; }.orbit-b { width: 340px; height: 340px; }
   .platform-front { width: 165px; }
   .download-heading { margin: 33px auto 35px; }
@@ -180,4 +175,13 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { transform: none; opacity: 1; }
+}
+img.brand-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 1;
+  visibility: visible;
+  flex-shrink: 0;
 }
