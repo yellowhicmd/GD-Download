@@ -1,1 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171923">
+  <meta name="description" content="Choose the PC or mobile download for this community-made Geometry Dash mod.">
+  <title>Downloads — Dash Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../download-config.js" defer></script>
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar shell">
+    <a class="brand" href="../" aria-label="Dash Lab home">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span>DASH<span class="brand-muted">LAB</span></span>
+    </a>
+    <a class="top-link" href="../">Home <span aria-hidden="true">↗</span></a>
+  </header>
 
+  <main id="main" class="shell download-main">
+    <a class="back-link reveal" href="../"><span aria-hidden="true">←</span> Back to the main page</a>
+    <section class="download-heading reveal">
+      <div class="eyebrow"><span class="pulse-dot"></span> PICK YOUR PLATFORM</div>
+      <h1>Ready to <span class="gradient-text">play?</span></h1>
+      <p>Choose the build for your device. The download buttons will use the links you add in <code>download-config.js</code>.</p>
+    </section>
+
+    <section class="download-grid" aria-label="Available downloads">
+      <article class="download-card pc-card reveal">
+        <div class="card-topline"><span class="platform-chip">01 / DESKTOP</span><span class="card-glyph" aria-hidden="true">▣</span></div>
+        <div class="device-art pc-art" aria-hidden="true"><div class="monitor"><div class="monitor-screen"><span class="screen-cube"></span><span class="screen-slope"></span></div><div class="monitor-neck"></div><div class="monitor-foot"></div></div></div>
+        <h2>PC Version</h2>
+        <p>For your desktop or laptop. Add your PC build link in the config file to activate this download.</p>
+        <a class="button button-primary download-button" href="#" data-download="pc">Download PC Version <span aria-hidden="true">↓</span></a>
+        <p class="file-hint">Use the file type your build actually requires, such as ZIP or EXE.</p>
+      </article>
+
+      <article class="download-card mobile-card reveal">
+        <div class="card-topline"><span class="platform-chip">02 / MOBILE</span><span class="card-glyph" aria-hidden="true">▯</span></div>
+        <div class="device-art mobile-art" aria-hidden="true"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-cube"></span><span class="phone-star">✦</span></div><div class="phone-home"></div></div></div>
+        <h2>Mobile Version</h2>
+        <p>For a compatible mobile device. Add your mobile build link in the config file to activate this download.</p>
+        <a class="button button-secondary download-button" href="#" data-download="mobile">Download Mobile Version <span aria-hidden="true">↓</span></a>
+        <p class="file-hint">For Android, this might be an APK. Use the correct format for your build.</p>
+      </article>
+    </section>
+
+    <div class="download-disclaimer reveal"><span aria-hidden="true">ⓘ</span><p>Only download files you trust. This is a fan-made mod page and is not affiliated with the official Geometry Dash developers.</p></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer shell">
+    <span>Made by a fan, for players.</span>
+    <span><a href="../">Return home ↑</a></span>
+  </footer>
+</body>
+</html>
