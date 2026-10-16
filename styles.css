@@ -185,9 +185,13 @@ color-scheme: dark;
   visibility: visible;
   flex-shrink: 0;
                }
-/* Center the download buttons */
-.download-button {
-  align-self: center;
-  margin-inline: auto;
+.download-card .button {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  gap: 10px;
+  padding-inline: 18px;
+  font-size: .86rem;
+  text-align: center;
 }
-
