@@ -1,7 +1,6 @@
 (() => {
   "use strict";
 
-  // Shared theme preference for the homepage and downloads page.
   const STORAGE_KEY = "dash-lab-theme";
   const root = document.documentElement;
 
@@ -18,21 +17,16 @@
     const button = document.getElementById("themeToggle");
 
     if (icon) {
-      // Show the option to switch to the opposite theme.
-      icon.textContent = theme === "dark" ? "☀" : "☾";
+      // Show the icon for switching to the opposite theme.
+      icon.textContent = theme === "dark" ? "\u2600" : "\u263E";
     }
 
     if (button) {
-      button.setAttribute(
-        "aria-label",
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
+      const label =
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
-      button.setAttribute(
-        "title",
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
-
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
       button.setAttribute("aria-pressed", String(theme === "dark"));
     }
 
@@ -49,12 +43,11 @@
       try {
         localStorage.setItem(STORAGE_KEY, theme);
       } catch (error) {
-        // The theme still works for this page if storage is unavailable.
+        // Theme switching still works if browser storage is unavailable.
       }
     }
   }
 
-  // Initialize using the saved choice, or the device preference.
   let initialTheme;
 
   try {
@@ -69,7 +62,6 @@
 
   applyTheme(initialTheme);
 
-  // Connect the theme button without interfering with script.js.
   const button = document.getElementById("themeToggle");
 
   if (button) {
