@@ -12,35 +12,74 @@
   <link rel="stylesheet" href="styles.css">
 
   <script>
-    (function () {
-      const savedTheme = localStorage.getItem("dash-lab-theme");
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme =
-        savedTheme || (systemDark ? "dark" : "light");
+    (() => {
+      try {
+        const saved = localStorage.getItem("dash-lab-theme");
+        document.documentElement.dataset.theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch {
+        document.documentElement.dataset.theme =
+          matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
     })();
   </script>
 
   <style>
-    .theme-toggle {
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topbar .brand {
+      min-width: 0;
+      margin-right: auto;
+    }
+
+    .topbar .top-link {
       flex-shrink: 0;
-      padding: 9px 13px;
+    }
+
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
       border: 1px solid #454957;
       border-radius: 12px;
-      background: #252936;
-      color: #f5f6fa;
-      font: inherit;
-      font-size: 14px;
-      font-weight: 600;
+      background: transparent;
+      color: inherit;
+      font-family: inherit;
+      font-size: 23px;
+      line-height: 1;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .theme-toggle:hover {
-      border-color: #8b92a5;
+    .icon-button:hover {
+      background: rgba(128, 128, 128, 0.12);
     }
 
-    .topbar {
-      gap: 12px;
+    .icon-button:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 380px) {
+      .topbar {
+        gap: 7px;
+      }
+
+      .icon-button {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+      }
     }
 
     html[data-theme="light"] body {
@@ -48,22 +87,10 @@
       color: #171923;
     }
 
-    html[data-theme="light"] .ambient {
-      opacity: 0.12;
-    }
-
-    html[data-theme="light"] .topbar,
-    html[data-theme="light"] .hero-copy,
-    html[data-theme="light"] .about-section,
-    html[data-theme="light"] .site-footer {
-      color: #171923;
-    }
-
     html[data-theme="light"] .brand,
     html[data-theme="light"] .top-link,
     html[data-theme="light"] .text-link,
-    html[data-theme="light"] .inline-arrow,
-    html[data-theme="light"] .site-footer a {
+    html[data-theme="light"] .inline-arrow {
       color: #30364a;
     }
 
@@ -75,9 +102,7 @@
       color: #535b70;
     }
 
-    html[data-theme="light"] .theme-toggle {
-      background: #ffffff;
-      color: #171923;
+    html[data-theme="light"] .icon-button {
       border-color: #d5d9e5;
     }
 
@@ -92,6 +117,7 @@
   </style>
 
   <script src="script.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -103,12 +129,8 @@
       <img src="/images/logo.png" alt="Dash Lab" class="brand-icon">
       <span>GEOMETRY<span class="brand-muted">DASH</span></span>
     </a>
-
     <a class="top-link" href="downloads/">Downloads <span aria-hidden="true">↗</span></a>
-
-    <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-      ☀️ Light
-    </button>
+    <button id="themeToggle" class="icon-button" aria-label="Toggle theme" title="Toggle light/dark theme" type="button"><span id="themeIcon">☾</span></button>
   </header>
 
   <main id="main" class="shell hero-layout">
@@ -134,33 +156,5 @@
   <footer class="site-footer shell">
     <span>Original game by Robtop Games AB</span>
   </footer>
-
-  <script>
-    (function () {
-      const button = document.querySelector(".theme-toggle");
-      const root = document.documentElement;
-
-      function updateButton() {
-        const isDark = root.dataset.theme === "dark";
-        button.textContent = isDark ? "☀️ Light" : "🌙 Dark";
-        button.setAttribute(
-          "aria-label",
-          isDark ? "Switch to light mode" : "Switch to dark mode"
-        );
-        button.setAttribute("aria-pressed", String(isDark));
-      }
-
-      button.addEventListener("click", function () {
-        const nextTheme =
-          root.dataset.theme === "dark" ? "light" : "dark";
-
-        root.dataset.theme = nextTheme;
-        localStorage.setItem("dash-lab-theme", nextTheme);
-        updateButton();
-      });
-
-      updateButton();
-    })();
-  </script>
 </body>
 </html>
