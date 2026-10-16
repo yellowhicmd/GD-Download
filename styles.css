@@ -910,3 +910,41 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; }
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     t
+    
+/* Accessible link colors in both themes */
+.top-link,
+.text-link,
+.inline-arrow,
+.site-footer a {
+  color: #087e69;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Purple on hover and while clicking */
+.top-link:hover,
+.text-link:hover,
+.inline-arrow:hover,
+.site-footer a:hover,
+.top-link:active,
+.text-link:active,
+.inline-arrow:active,
+.site-footer a:active {
+  color: #7853c8;
+}
+
+/* Keep the small arrows visible and consistent */
+.text-link span,
+.inline-arrow span {
+  color: inherit;
+}
+
+/* Make keyboard navigation easy to see */
+.top-link:focus-visible,
+.text-link:focus-visible,
+.inline-arrow:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid #7853c8;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+    
