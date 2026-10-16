@@ -7,34 +7,12 @@
   <meta name="description" content="Choose the PC or mobile download for this community-made Geometry Dash mod.">
   <title>Downloads — Geometry Dash</title>
 
-  <script>
-    (() => {
-      try {
-        const savedTheme = localStorage.getItem("dash-lab-theme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-
-        document.documentElement.dataset.theme =
-          savedTheme === "light" || savedTheme === "dark"
-            ? savedTheme
-            : systemTheme;
-      } catch (error) {
-        document.documentElement.dataset.theme =
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-      }
-    })();
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
 
+  <link rel="stylesheet" href="../styles.css">
   <script src="../download-config.js" defer></script>
-  <script src="../app.js" defer></script>
   <script src="../script.js" defer></script>
 </head>
 <body>
@@ -51,14 +29,6 @@
 
     <div class="topbar-actions">
       <a class="top-link" href="../">Home <span aria-hidden="true">↗</span></a>
-      <button
-        id="themeToggle"
-        class="icon-button"
-        type="button"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-        aria-pressed="false"
-      ><span id="themeIcon" aria-hidden="true">☾</span></button>
     </div>
   </header>
 
