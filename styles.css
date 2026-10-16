@@ -185,3 +185,9 @@ color-scheme: dark;
   visibility: visible;
   flex-shrink: 0;
                }
+/* Center the download buttons */
+.download-button {
+  align-self: center;
+  margin-inline: auto;
+}
+
