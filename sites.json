@@ -1,0 +1,24 @@
+{
+  "sites": [
+    {
+      "id": "gd-macros",
+      "name": "GD-Macros",
+      "url": "https://gd-macros.pages.dev",
+      "description": "A website hosting a collection of all my GD Macros.",
+      "icon": "https://your-quillio.pages.dev/favicon.ico",
+      "category": "Web App",
+      "featured": true,
+      "githubRepo": "https://github.com/yellowhicmd/GD-Macros"
+    },
+    {
+      "id": "gd-download",
+      "name": "GD-Download",
+      "url": "https://gd-download.pages.dev",
+      "description": "A website to download Geometry Dash for free",
+      "icon": "",
+      "category": "Personal",
+      "featured": true,
+      "githubRepo": "https://github.com/yellowhicmd/GD-Download"
+    }
+  ]
+}
